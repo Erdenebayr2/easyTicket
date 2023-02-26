@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<div class="main-content">
+{% block content %}
+  <h1>Бүртгүүлэх хэсэг</h1>
+  <form method="post">
+    {% csrf_token %}
+    <!-- <label for="id">ID:</label>
+    <p></p>
+    <input type="number" name="id" id="id"><br> -->
+    <p></p>
+    <label for="username">Нэр:</label>
+    <p></p>
+    <input type="text" name="username" id="username" placeholder="нэрээ оруулна уу"><br>
+    <p></p>
+    <label for="password">Нууц үг:</label>
+    <p></p>
+    <input type="text" name="password" id="password" placeholder="нууц үгээ оруулна уу"><br>
+    <p></p>
+    {% if messages %}
+    <di class="messages">
+        {% for message in messages %}
+            <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+        {% endfor %}
+    {% endif %}
+    <p></p>
+    <button type="submit">Бүртгүүлэх</button>
+  </form>
+{% endblock %}
+</div>

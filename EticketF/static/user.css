@@ -1,0 +1,55 @@
+
+body{
+    margin: 0px;
+}
+  .main-content {
+    height: 400px;
+    width: 260px;
+    border: 1px solid black;
+    padding: 20px 30px 0px 30px;
+    margin-top: 5%;
+}
+input{
+    padding: 5px;
+    width: 90%;
+}
+a{
+    text-decoration: none;
+}
+button{
+    cursor: pointer;
+}
+.popL{
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    position: fixed;
+    background-color: black;
+    opacity: 0.5;
+}
+.popM{
+    width: 400px;
+    height: 100px;
+    background-color: white;
+    position: fixed;
+    padding: 20px;
+    margin-left: 35%;
+    clear: both;
+    display: table;
+}
+.fa{
+    position:absolute;
+    right: 0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.fa:hover{
+    color: red;
+}
+table,th,tr,td{
+    border: 1px solid black;
+    padding: 5px;
+}
+.pop{
+        justify-content: center;
+}

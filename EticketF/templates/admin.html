@@ -1,0 +1,42 @@
+<style>
+    table,th,tr,td{
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+
+<div style="display: none;" id="reg">
+<h1>Бүртгэлтэй хэрэглэгчид</h1>
+
+{% block content %}
+<table style="border: 1px solid black;">
+    <tr>
+        <th>ID</th>
+        <th>Нэр</th>
+        <th>Нууц үг</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</div>
+<button onclick="oen()" id="open">Бүртгэлтэй хэрэглэгчдийг харах</button>
+<button onclick="cose()" id="close" style="display: none;">Бүртгэлтэй хэрэглэгчдийг хаах</button>
+
+<script>
+    function oen() {
+        document.getElementById("reg").style.display="block";
+        document.getElementById("open").style.display="none";
+        document.getElementById("close").style.display="block";
+    }
+    function cose() {
+        document.getElementById("reg").style.display="none";
+        document.getElementById("open").style.display="block";
+        document.getElementById("close").style.display="none";
+    }
+</script>

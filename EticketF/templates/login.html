@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="main-content">
+    <h1>Нэвтрэх хэсэг</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="uname">Нэр:</label>
+        <p></p>
+        <input type="text" name="uname" id="uname" placeholder="нэрээ оруулна уу"><br>
+        <p></p>
+        <label for="pass">Нууц үг:</label>
+        <p></p>
+        <input type="text" name="pass" id="pass" placeholder="нууц үгээ оруулна уу"><br>
+        <p></p>
+        {% if messages %}
+        <di class="messages">
+            {% for message in messages %}
+                <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+            {% endfor %}
+        {% endif %}
+        </di>
+    <p></p>
+        <button type="submit" style="inset-block-end: 50px;">Нэвтрэх</button>
+      </form>
+      <p></p>
+      <a href="{% url 'signup' %}">Бүртгэл үүсгэх</a>
+</div>
+</body>
+<script src="{% static 'style.js' %}"></script>
+</html>
