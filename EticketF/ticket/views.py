@@ -51,6 +51,8 @@ def signup(request):
         # id = request.POST['id']
         username = request.POST['username']
         password = request.POST['password']
+        email = request.POST['mail']
+        nickname = request.POST['nick']
         con = psycopg2.connect(
             host='202.131.254.138', 
             port='5938',
@@ -61,7 +63,7 @@ def signup(request):
         cur = con.cursor()
         cur.execute("SELECT nextval('mid')")
         uid = cur.fetchone()[0]
-        cur.execute('INSERT INTO "user" (id,username, password) VALUES (%s,%s, %s)',[uid,username, password])
+        cur.execute('INSERT INTO "user" (id,username, password,mail,nickname) VALUES (%s,%s, %s,%s,%s)',[uid,username, password,email,nickname])
         con.commit()
         return redirect('login')
     return render(request, 'signup.html')
