@@ -9,23 +9,32 @@
     <!-- <label for="id">ID:</label>
     <p></p>
     <input type="number" name="id" id="id"><br> -->
-    <p></p>
-    <label for="username">Нэр:</label>
-    <p></p>
-    <input type="text" name="username" id="username" placeholder="нэрээ оруулна уу"><br>
-    <p></p>
-    <label for="nick">nick:</label>
-    <p></p>
-    <input type="text" name="nick" id="nick" placeholder="нэрээ оруулна уу"><br>
-    <p></p>
-    <label for="mail">mail:</label>
-    <p></p>
-    <input type="text" name="mail" id="mail" placeholder="нэрээ оруулна уу"><br>
-    <p></p>
-    <label for="password">Нууц үг:</label>
-    <p></p>
-    <input type="text" name="password" id="password" placeholder="нууц үгээ оруулна уу"><br>
-    <p></p>
+<body>  
+  <div class="main-content">
+    <form method="post">
+     <div class="signup-wrap">
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Бүртгэл</label>
+    <div class="sign-up-htm">
+      <div class="group">
+        <label for="username">Нэр:</label>
+      
+        <input type="text" name="username" id="username" placeholder="нэрээ оруулна уу"><br>
+      </div>
+      <div class="group">
+        <label for="nick">nick:</label>
+        <p></p>
+        <input type="text" name="nick" id="nick" placeholder="нэрээ оруулна уу"><br>
+      </div>
+      <div class="group">
+        <label for="mail">mail:</label>
+        <input type="text" name="mail" id="mail" placeholder="нэрээ оруулна уу"><br>
+      </div>
+        <label for="password">Нууц үг:</label>
+        <p></p>
+        <input type="text" name="password" id="password" placeholder="нууц үгээ оруулна уу"><br>
+        <p></p>
+      </div>
+    </div>
     {% if messages %}
     <di class="messages">
         {% for message in messages %}
@@ -37,3 +46,6 @@
   </form>
 {% endblock %}
 </div>
+</div>
+</div>
+</body>

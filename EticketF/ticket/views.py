@@ -9,26 +9,47 @@ def dashboard(request):
 
 def login(request):
     if request.method == 'POST':
-        uname = request.POST['uname']
-        passw = request.POST['pass']
-        con = psycopg2.connect(
+        if request.POST['user'] and request.POST['password']:
+            username = request.POST['user']
+            password = request.POST['password']
+            email = request.POST['mail']
+            nickname = request.POST['nick']
+            con = psycopg2.connect(
             host='202.131.254.138', 
             port='5938',
             database='qrEticket',
             user='qreasyTicket',
             password='eba7khulan4'
             )
-        cur = con.cursor()
-        cur.execute('SELECT count(username) FROM "user" WHERE username = %s AND password = %s',[uname, passw])
-        xp = cur.fetchone()
-        xp = list(xp)
-        print(xp[0])
-        if xp[0] == 1:
-            return redirect('dashboard')
-        else:
-            messages.success(request, 'Бүртгэлтэй хэрэглэгч олдсонгүй.')
+            cur = con.cursor()
+            cur.execute("SELECT nextval('mid')")
+            uid = cur.fetchone()[0]
+            cur.execute('INSERT INTO "user" (id,username, password,mail,nickname) VALUES (%s,%s, %s,%s,%s)',[uid,username, password,email,nickname])
+            con.commit()
             return redirect('login')
+        elif request.POST['uname']:
+            uname = request.POST['uname']
+            passw = request.POST['pass']
+            con = psycopg2.connect(
+            host='202.131.254.138', 
+            port='5938',
+            database='qrEticket',
+            user='qreasyTicket',
+            password='eba7khulan4'
+            )
+            cur = con.cursor()
+            cur.execute('SELECT count(username) FROM "user" WHERE username = %s AND password = %s',[uname, passw])
+            xp = cur.fetchone()
+            xp = list(xp)
+            print(xp[0])
+            if xp[0] == 1:
+                return redirect('dashboard')
+            else:
+                messages.success(request, 'Бүртгэлтэй хэрэглэгч олдсонгүй.')
+                return redirect('login')
     return render(request,'login.html')
+
+       
 
 def user(request):
     if request.method == 'GET':
