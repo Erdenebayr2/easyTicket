@@ -10,7 +10,7 @@ def dashboard(request):
 def login(request):
     if request.method == 'POST':
         uname = request.POST['uname']
-        passw = request.POST['pass']
+        passw = request.POST['pass'] #hi
         con = psycopg2.connect(
             host='202.131.254.138', 
             port='5938',
