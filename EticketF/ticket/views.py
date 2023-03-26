@@ -63,7 +63,7 @@ def login(request):
             else:
                 messages.success(request, 'Бүртгэлтэй хэрэглэгч олдсонгүй.')
                 return redirect('login')
-    return render(request,'login.html')
+    return render(request,'index.html')
 
        
 
