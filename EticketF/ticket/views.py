@@ -2,16 +2,32 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 import psycopg2
 from django.http import HttpResponse
-# Create your views here.
+import random ,hashlib
+from django.core.mail import send_mail
 
 def dashboard(request):
     return render(request, 'dashboard.html')
-
 def login(request):
+    random_string = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz1234567890/$?!', k=4))
+    str = random_string
+    hasho = hashlib.sha256()
+    hasho.update(str.encode('utf8'))
+    hex = hasho.hexdigest()
     if request.method == 'POST':
-        if request.POST['user'] and request.POST['password']:
+        if request.POST['user'] and request.POST['mail']:
+            subject = 'Бүртгэл баталгаажлаа'
+            message = 'таны нууц үг бол '+ hex
+            sender_email = 'eticket123@gmail.com'
+            receiver_email = request.POST.get('mail')
+            send_mail(
+                subject,
+                message,
+                sender_email,
+                [receiver_email],
+                fail_silently=False,
+            )
             username = request.POST['user']
-            password = request.POST['password']
+            password = hex
             email = request.POST['mail']
             nickname = request.POST['nick']
             con = psycopg2.connect(
@@ -67,28 +83,6 @@ def user(request):
         con.close()
         return render(request,'user.html', context={'users':users})
 
-def signup(request):
-    if request.method == 'POST':
-        # id = request.POST['id']
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['mail']
-        nickname = request.POST['nick']
-        con = psycopg2.connect(
-            host='202.131.254.138', 
-            port='5938',
-            database='qrEticket',
-            user='qreasyTicket',
-            password='eba7khulan4'
-            )
-        cur = con.cursor()
-        cur.execute("SELECT nextval('mid')")
-        uid = cur.fetchone()[0]
-        cur.execute('INSERT INTO "user" (id,username, password,mail,nickname) VALUES (%s,%s, %s,%s,%s)',[uid,username, password,email,nickname])
-        con.commit()
-        return redirect('login')
-    return render(request, 'signup.html')
-
 def teller(request):
     if request.method == 'GET':
         con = psycopg2.connect(
@@ -106,3 +100,6 @@ def teller(request):
         con.close()
         print(users)
         return render(request,'admin.html', context={'users':users})
+    
+def contact(request):
+    return render(request,'contact.html')

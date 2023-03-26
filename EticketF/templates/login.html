@@ -27,7 +27,7 @@
                             <label for="pass" class="label">Нууц үг</label>
                             <input id="pass" type="password" class="input" data-type="password" name="pass">
                             {% if messages %}
-                <di class="messages">
+                <di class="messages" style="color:white">
                     {% for message in messages %}
                         <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
                     {% endfor %}
@@ -35,10 +35,10 @@
                         </div>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            <label for="check"><span class="icon"></span> Намайг сана</label>
                         </div>
                         <div class="group">
-                            <button type="submit" class="button">log in</button>
+                            <button type="submit" class="button">Нэвтрэх</button>
                         </div>
 
                         <div class="hr"></div>
@@ -48,27 +48,19 @@
                     </div>
                     <div class="sign-up-htm">
                         <div class="group">
-                            <label for="user" class="label">Username</label>
+                            <label for="user" class="label">Овог</label>
                             <input id="user" type="text" class="input" name="user">
                         </div>
                         <div class="group">
-                            <label for="nick" class="label">Nickname</label>
+                            <label for="nick" class="label">Нэр</label>
                             <input id="nick" type="text" class="input" name="nick">
-                        </div>
-                        <div class="group">
-                            <label for="password" class="label">Нууц үг </label>
-                            <input id="password" type="password" class="input" data-type="password" name="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Нууц үг давтах</label>
-                            <input id="rpass" type="password" class="input" data-type="password" name="rpass">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Цахим хаяг оруулах</label>
                             <input id="mail" type="mail" class="input" name="mail">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
+                            <input type="submit" class="button" value="Бүртгүүлэх">
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
@@ -80,8 +72,6 @@
         </div>
     </form>
     </div>
-
-      <a href="{% url 'signup' %}">Бүртгэл үүсгэх</a>
 
 </body>
 <script src="{% static 'style.js' %}"></script>

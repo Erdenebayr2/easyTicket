@@ -1,43 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <script>
-        function openNav() {
-          document.getElementById("myNav").style.width = "30%";
-        }
-        
-        function closeNav() {
-          document.getElementById("myNav").style.width = "0%";
-        }
-        </script>
-<style>
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'dashboard.css' %}">
 </head>
 <body>
-    <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-          <a href="{% url 'teller' %}"><ii class="fa fa-check" style="font-size: 30px;"></ii> Захиалга</a>
-          <a href="#"><ii class="fa fa-book" style="font-size: 30px;"></ii> Мэдээ</a>
-          <a href="#"><ii class="fa fa-user" style="font-size: 30px;"></ii> Миний хаяг</a>
-          <a href="#"><ii class="fa fa-phone" style="font-size: 30px;"></ii> Холбогдох</a>
-        </div>
-      </div>
-<div class="Con1">
-    <i class="fa fa-train" style="font-size: 30px;" onclick="openNav()"></i>
+  {% block content %}
+  {% include 'menu.html' %}
+{% endblock %}
+<div class="body">
+  <div class="ticket">
+    <i class="fa fa-train" style="margin-left: 40px;"></i>
+    <i class="fa fa-map-marker" style="float:right;margin-right: 37px;"></i>
+    <p></p>
+    <b style="margin-left: 5px;">УлаанБаатар</b>
+    <b style="margin-left: 25px;">ЗамынҮүд</b>
+    
+    <button type="button">Захиалах</button>
+    <b>2023/04/11 -</b>
+    <b>2023/04/12</b>
+  </div>
+  <div class="ticket">
+    <i class="fa fa-train" style="margin-left: 40px;"></i>
+    <i class="fa fa-map-marker" style="float:right;margin-right: 37px;"></i>
+    <p></p>
+    <b style="margin-left: 5px;">УлаанБаатар</b>
+    <b style="margin-left: 25px;">ЗамынҮүд</b>
+    
+    <button type="button">Захиалах</button>
+    <b>2023/04/11 -</b>
+    <b>2023/04/12</b>
+  </div>
+  <div class="ticket">
+    <i class="fa fa-train" style="margin-left: 40px;"></i>
+    <i class="fa fa-map-marker" style="float:right;margin-right: 37px;"></i>
+    <p></p>
+    <b style="margin-left: 5px;">УлаанБаатар</b>
+    <b style="margin-left: 25px;">ЗамынҮүд</b>
+    
+    <button type="button">Захиалах</button>
+    <b>2023/04/11 -</b>
+    <b>2023/04/12</b>
+  </div>
 </div>
-<div class="Con2">
-  <eq>Галт тэрэгний тасалбар захиалга</eq>
-  <a href="{% url 'login' %}">
-  <iq class="fa fa-sign-out" style="font-size: 25px;float: right;">Гарах</iq></a>
+<div class="footer">
+  <div class="map">
+    <i class="fa fa-map-marker"></i> Эрээн - Замын үүд
+  </div>
+  <div class="map">
+    <i class="fa fa-map-marker"></i> Эрээн - Замын үүд
+  </div>
+  <div class="map">
+    <i class="fa fa-map-marker"></i> Эрээн - Замын үүд
+  </div>
+  <div class="map">
+    <i class="fa fa-map-marker"></i> Эрээн - Замын үүд
+  </div>
 </div>
 </body>
 </html>
