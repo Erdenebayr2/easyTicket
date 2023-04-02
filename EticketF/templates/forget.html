@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="main-content">
+                <form method="post">
+            {% csrf_token %}
+        <div class="login-wrap">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Нууц үгээ мартсан</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="gmail" class="label">Цахим хаягаа оруулна уу?</label>
+                            <input id="gmail" name="gmail" type="email" class="input">
+                        </div>
+                        {% if messages %}
+                        <di class="messages" style="color:yellow;padding: 5px;margin-bottom: 50px;">
+                            {% for message in messages %}
+                                <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+                            {% endfor %}
+                        {% endif %}</di>
+                        <div class="group" style="margin-top: 15px;">
+                            <button type="submit" class="button">Үргэлжлүүлэх</button>
+                        </div><div class="hr"></div> 
+                        <div class="foot-lnk">
+                            <a href="{% url 'login' %}">Буцах</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+</body>
+<script src="{% static 'style.js' %}"></script>
+</html>

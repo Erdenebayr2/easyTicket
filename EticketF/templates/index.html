@@ -26,14 +26,15 @@
                         <div class="group">
                             <label for="pass" class="label">Нууц үг</label>
                             <input id="pass" type="password" class="input" data-type="password" name="pass">
-                            {% if messages %}
-                <di class="messages" style="color:white">
-                    {% for message in messages %}
-                        <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
-                    {% endfor %}
-                {% endif %}
                         </div>
-                        <div class="group">
+                        {% if messages %}
+                        <di class="messages" style="color:yellow;padding: 5px;margin-bottom: 30px;">
+                            {% for message in messages %}
+                                <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+                            {% endfor %}
+                        {% endif %}
+                        </di>
+                        <div class="group" style="margin-top: 15px;">
                             <input id="check" type="checkbox" class="check" checked>
                             <label for="check"><span class="icon"></span> Намайг сана</label>
                         </div>
@@ -43,7 +44,7 @@
 
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="#forgot">Нууц үг мартсан?</a>
+                            <a href="{% url 'forget' %}">Нууц үг мартсан?</a>
                         </div>
                     </div>
                     <div class="sign-up-htm">
