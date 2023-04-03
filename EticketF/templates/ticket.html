@@ -1,0 +1,245 @@
+{% block content %}
+{% include 'menu.html' %}
+{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+.col-35 {
+  float: left;
+  width: 37.5%;
+  margin-top: 6px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, .col-35, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+#datetimepicker{
+    color: grey;
+}
+h3{
+    margin-top: 70px;
+}
+</style>
+</head>
+<body>
+
+<h3>Тасалбар захиалга</h3>
+<p>Та өөрийн явах чиглэл өдөрийг бөглөсөнөөр таны тасалбар хүчинтэй болж теллер дээр очих болно.</p>
+
+<div class="container">
+  <form action="">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Хаанаас</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="loc">
+            <option value="149">103-Р КМ</option>
+            <option value="95">109-Р КМ </option>
+            <option value="67">31-Р ЗӨРЛӨГ</option>
+            <option value="421">36-Р ЗӨРЛӨГ</option>
+            <option value="131">42-Р КМ ШГ</option>
+            <option value="136">52-Р КМ ШГ</option>
+            <option value="39">YНЭГТ</option>
+            <option value="3">АМГАЛАН</option>
+            <option value="2">АРШААНТ</option>
+            <option value="6">БАРУУНХАРАА</option>
+            <option value="10">БОР-ӨНДӨР</option>
+            <option value="82">БУЯНТ</option>
+            <option value="12">ДАРХАН-1</option>
+            <option value="71">ДОЛООДЫН ХӨНДИЙ</option>
+            <option value="19">ЗАМЫН-ҮҮД</option>
+            <option value="18">ЗҮҮНХАРАА</option>
+            <option value="21">ЛҮН</option>
+            <option value="22">МАНДАЛ ӨРТӨӨ</option>
+            <option value="84">НАРСТ</option>
+            <option value="25">НОМГОН 179 КМ</option>
+            <option value="65">ОЛОН - ОВОО</option>
+            <option value="26">ОРХОН ӨРТӨӨ</option>
+            <option value="29">САЙНШАНД</option>
+            <option value="31">СҮХБААТАР</option>
+            <option value="35">ТҮНХ</option>
+            <option value="38">УЛААН-УУЛ</option>
+            <option selected="" value="37">УЛААНБААТАР</option>
+            <option value="88">УЛААНТОЛГОЙ </option>
+            <option value="152">ХАЙРХАН</option>
+            <option value="42">ХӨТӨЛ </option>
+            <option value="50">ЧОЙР</option>
+            <option value="134">ЧУЛУУТ</option>
+            <option value="76">ШАРГЫН ОВОО</option>
+            <option value="52">ШАРЫН ГОЛ</option>
+            <option value="64">ШИВЭЭ ГОВЬ</option>
+            <option value="59">ЭМЭЭЛТ</option>
+            <option value="57">ЭРДЭНЭТ ӨРТӨӨ</option>
+            <option value="28">ӨРГӨН</option>
+          </select>      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Хаашаа</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="where">
+          <option value="149">103-Р КМ</option>
+          <option value="95">109-Р КМ </option>
+          <option value="67">31-Р ЗӨРЛӨГ</option>
+          <option value="421">36-Р ЗӨРЛӨГ</option>
+          <option value="131">42-Р КМ ШГ</option>
+          <option value="136">52-Р КМ ШГ</option>
+          <option value="39">YНЭГТ</option>
+          <option value="3">АМГАЛАН</option>
+          <option value="2">АРШААНТ</option>
+          <option value="6">БАРУУНХАРАА</option>
+          <option value="10">БОР-ӨНДӨР</option>
+          <option value="82">БУЯНТ</option>
+          <option value="12">ДАРХАН-1</option>
+          <option value="71">ДОЛООДЫН ХӨНДИЙ</option>
+          <option value="19">ЗАМЫН-ҮҮД</option>
+          <option value="18">ЗҮҮНХАРАА</option>
+          <option value="21">ЛҮН</option>
+          <option value="22">МАНДАЛ ӨРТӨӨ</option>
+          <option value="84">НАРСТ</option>
+          <option value="25">НОМГОН 179 КМ</option>
+          <option value="65">ОЛОН - ОВОО</option>
+          <option value="26">ОРХОН ӨРТӨӨ</option>
+          <option selected="" value="29">САЙНШАНД</option>
+          <option value="31">СҮХБААТАР</option>
+          <option value="35">ТҮНХ</option>
+          <option value="38">УЛААН-УУЛ</option>
+          <option value="37">УЛААНБААТАР</option>
+          <option value="88">УЛААНТОЛГОЙ </option>
+          <option value="152">ХАЙРХАН</option>
+          <option value="42">ХӨТӨЛ </option>
+          <option value="50">ЧОЙР</option>
+          <option value="134">ЧУЛУУТ</option>
+          <option value="76">ШАРГЫН ОВОО</option>
+          <option value="52">ШАРЫН ГОЛ</option>
+          <option value="64">ШИВЭЭ ГОВЬ</option>
+          <option value="59">ЭМЭЭЛТ</option>
+          <option value="57">ЭРДЭНЭТ ӨРТӨӨ</option>
+          <option value="28">ӨРГӨН</option>
+          </select>      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Галт тэрэгний төрөл</label>
+      </div>
+      <div class="col-75">
+        <select id="type" name="type">
+          <option value="public">НИЙТИЙН</option>
+          <option value="room">ТАСАЛГААТ</option>
+          <option value="sleep">УНТЛАГЫН</option>
+          <option value="vip">ЛЮКС</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="country">Төрөл</label>
+        </div>
+        <div class="col-75">
+            <select id="sex" name="sex" onchange="sel()">
+              <option value="adults">ТОМ ХҮН</option>
+              <option value="child">ХҮҮХЭД</option>
+            </select>
+          </div>
+      </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Огноо</label>
+      </div>
+      <div class="col-75" style="margin-bottom: 1px;">
+        <input type="text" id="datetimepicker" placeholder="Өдөр цагаа сонгоно уу ?" name="ogno"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Тоо</label>
+      </div>
+      <div class="col-75">
+        <input type="number" style="margin-bottom: 20px;width: 100%;padding: 10px;  border: 1px solid #ccc;
+        border-radius: 4px;" name="num">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Захиалах" style="background-color: rgb(83, 34, 230);">
+    </div>
+  </form>
+</div>
+<script>
+    // Монгол хэлний дататайм пикерийн текст
+    $.datetimepicker.setLocale('mn');
+
+    // Дататайм пикерийг идэвхжүүлэх
+    $('#datetimepicker').datetimepicker({
+      dayOfWeekStart: 1, // Долоо хоногийн эхлэл: Даваа
+      lang: 'mn', // Хэл: Монгол
+      format: 'Y-m-d H:i', // Он-сар-өдөр цаг: Минут
+      step: 60 // Хугацааны өмнөх/дараагийн хугацааг тооцоолох: 30 минут
+    });
+  </script>
+</body>
+</html>

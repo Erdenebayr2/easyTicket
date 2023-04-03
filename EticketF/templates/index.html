@@ -27,45 +27,42 @@
                         <div class="group">
                             <label for="pass" class="label">Нууц үг</label>
                             <input id="pass" type="password" class="input" data-type="password" name="pass">
-                            {% if messages %}
-                <di class="messages">
-                    {% for message in messages %}
-                        <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
-                    {% endfor %}
-                {% endif %}
                         </div>
-                        <div class="group">
+                        {% if messages %}
+                        <di class="messages" style="color:yellow;padding: 5px;margin-bottom: 30px;">
+                            {% for message in messages %}
+                                <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+                            {% endfor %}
+                        {% endif %}
+                        </di>
+                        <div class="group" style="margin-top: 15px;">
                             <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            <label for="check"><span class="icon"></span> Намайг сана</label>
                         </div>
                         <div class="group">
-                            <button type="submit" class="button">log in</button>
+                            <button type="submit" class="button">Нэвтрэх</button>
                         </div>
 
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="#forgot">Нууц үг мартсан?</a>
+                            <a href="{% url 'forget' %}">Нууц үг мартсан?</a>
                         </div>
                     </div>
                     <div class="sign-up-htm">
                         <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input">
+                            <label for="user" class="label">Овог</label>
+                            <input id="user" type="text" class="input" name="user">
                         </div>
                         <div class="group">
-                            <label for="pass" class="label">Шинэ нууц үг </label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Нууц үг давтах</label>
-                            <input id="pass" type="password" class="input" data-type="password">
+                            <label for="nick" class="label">Нэр</label>
+                            <input id="nick" type="text" class="input" name="nick">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Цахим хаяг оруулах</label>
-                            <input id="pass" type="text" class="input">
+                            <input id="mail" type="mail" class="input" name="mail">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
+                            <input type="submit" class="button" value="Бүртгүүлэх">
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
@@ -77,8 +74,6 @@
         </div>
     </form>
     </div>
-
-      <a href="{% url 'signup' %}">Бүртгэл үүсгэх</a>
 
 </body>
 <script src="{% static 'style.js' %}"></script>
