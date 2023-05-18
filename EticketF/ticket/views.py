@@ -4,19 +4,39 @@ import psycopg2
 from django.http import HttpResponse
 import random ,hashlib
 from django.core.mail import send_mail
+from psycopg2 import OperationalError, errorcodes, errors
+
 
 def dashboard(request):
     return render(request, 'dashboard.html')
 def login(request):
+    
     random_string = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz1234567890/$?!', k=4))
+    
     str = random_string
     hasho = hashlib.sha256()
     hasho.update(str.encode('utf8'))
     hex = hasho.hexdigest()
+    
     if request.method == 'POST':
         uname = request.POST['uname']
         passw = request.POST['pass'] #hi
-        con = psycopg2.connect()
+    
+        try:
+            con = psycopg2.connect(
+            host='202.131.254.138', 
+            port='5938',
+            database='qrEticket',
+            user='qreasyTicket',
+            password='eba7khulan4'
+            )
+        # except:
+        except Exception as err:
+            myVar = {}
+            myVar["aalz"] = err
+            # myVar["aalz2"] = type(error)
+            return render(request,"index.html",myVar)
+
         if request.POST['user'] and request.POST['mail']:
             subject = 'Бүртгэл баталгаажлаа'
             message = 'таны нууц үг бол '+ hex
